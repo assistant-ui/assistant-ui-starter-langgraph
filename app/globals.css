@@ -128,31 +128,4 @@
   body {
     @apply bg-background text-foreground;
   }
-
-  /* Scrollbar styling */
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-muted-foreground/20;
-    border-radius: 6px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-muted-foreground/30;
-  }
-
-  /* Firefox only scrollbar styling */
-  @-moz-document url-prefix() {
-    * {
-      scrollbar-color: oklch(0.552 0.016 285.938 / 25%) transparent;
-    }
-
-    .dark * {
-      scrollbar-color: oklch(0.705 0.015 286.067 / 25%) transparent;
-    }
-  }
 }
