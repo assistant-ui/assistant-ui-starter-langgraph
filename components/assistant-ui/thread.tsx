@@ -37,7 +37,7 @@ export const Thread: FC = () => {
     <LazyMotion features={domAnimation}>
       <MotionConfig reducedMotion="user">
         <ThreadPrimitive.Root
-          className="aui-root * border-border outline-ring/50 aui-thread-root @container flex h-full flex-col bg-background"
+          className="aui-root * aui-thread-root @container flex h-full flex-col border-border bg-background outline-ring/50"
           style={{
             ["--thread-max-width" as string]: "44rem",
           }}
@@ -363,7 +363,10 @@ const BranchPicker: FC<BranchPickerPrimitive.Root.Props> = ({
   return (
     <BranchPickerPrimitive.Root
       hideWhenSingleBranch
-      className={cn("aui-branch-picker-root mr-2 -ml-2 inline-flex items-center text-xs text-muted-foreground", className)}
+      className={cn(
+        "aui-branch-picker-root mr-2 -ml-2 inline-flex items-center text-xs text-muted-foreground",
+        className,
+      )}
       {...rest}
     >
       <BranchPickerPrimitive.Previous asChild>
