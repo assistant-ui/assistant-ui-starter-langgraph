@@ -19,7 +19,7 @@ export const createThread = async () => {
 };
 
 export const getThreadState = async (
-  threadId: string
+  threadId: string,
 ): Promise<ThreadState<{ messages: LangChainMessage[] }>> => {
   const client = createClient();
   return client.threads.getState(threadId);
@@ -42,6 +42,6 @@ export const sendMessage = async (params: {
         : null,
       command: params.command,
       streamMode: ["messages", "updates"],
-    }
+    },
   );
 };
