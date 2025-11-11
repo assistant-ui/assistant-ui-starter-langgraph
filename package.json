@@ -17,11 +17,12 @@
     "tailwindStylesheet": "app/globals.css"
   },
   "dependencies": {
-    "@assistant-ui/react": "^0.11.24",
+    "@assistant-ui/react": "^0.11.37",
     "@assistant-ui/react-langgraph": "^0.7.0",
-    "@assistant-ui/react-markdown": "^0.11.0",
+    "@assistant-ui/react-markdown": "^0.11.4",
     "@langchain/langgraph-sdk": "^0.1.9",
     "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
