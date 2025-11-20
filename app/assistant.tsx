@@ -6,7 +6,7 @@ import { useLangGraphRuntime } from "@assistant-ui/react-langgraph";
 import { createThread, getThreadState, sendMessage } from "@/lib/chatApi";
 import { Thread } from "@/components/assistant-ui/thread";
 
-export function MyAssistant() {
+export function Assistant() {
   const runtime = useLangGraphRuntime({
     stream: async function* (messages, { initialize, command }) {
       const { externalId } = await initialize();
