@@ -6,15 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ."
-  },
-  "prettier": {
-    "plugins": [
-      "prettier-plugin-tailwindcss"
-    ],
-    "tailwindStylesheet": "app/globals.css"
+    "lint": "biome check",
+    "lint:fix": "biome check --fix",
+    "format": "biome format --write"
   },
   "dependencies": {
     "@assistant-ui/react": "^0.11.47",
@@ -40,15 +34,11 @@
     "zustand": "^5.0.9"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
+    "@biomejs/biome": "^2.3.8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.6",
-    "prettier": "^3.7.3",
-    "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
