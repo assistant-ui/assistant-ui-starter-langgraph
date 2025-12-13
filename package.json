@@ -17,7 +17,7 @@
     "tailwindStylesheet": "app/globals.css"
   },
   "dependencies": {
-    "@assistant-ui/react": "^0.11.50",
+    "@assistant-ui/react": "^0.11.51",
     "@assistant-ui/react-langgraph": "^0.7.12",
     "@assistant-ui/react-markdown": "^0.11.8",
     "@langchain/langgraph-sdk": "^1.2.0",
