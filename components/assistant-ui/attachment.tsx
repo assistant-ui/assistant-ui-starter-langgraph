@@ -6,8 +6,8 @@ import {
   AttachmentPrimitive,
   ComposerPrimitive,
   MessagePrimitive,
-  useAssistantState,
-  useAssistantApi,
+  useAuiState,
+  useAui,
 } from "@assistant-ui/react";
 import { useShallow } from "zustand/shallow";
 import {
@@ -46,11 +46,11 @@ const useFileSrc = (file: File | undefined) => {
 };
 
 const useAttachmentSrc = () => {
-  const { file, src } = useAssistantState(
-    useShallow(({ attachment }): { file?: File; src?: string } => {
-      if (attachment.type !== "image") return {};
-      if (attachment.file) return { file: attachment.file };
-      const src = attachment.content?.filter((c) => c.type === "image")[0]
+  const { file, src } = useAuiState(
+    useShallow((s): { file?: File; src?: string } => {
+      if (s.attachment.type !== "image") return {};
+      if (s.attachment.file) return { file: s.attachment.file };
+      const src = s.attachment.content?.filter((c) => c.type === "image")[0]
         ?.image;
       if (!src) return {};
       return { src };
@@ -74,7 +74,7 @@ const AttachmentPreview: FC<AttachmentPreviewProps> = ({ src }) => {
         "block h-auto max-h-[80vh] w-auto max-w-full object-contain",
         isLoaded
           ? "aui-attachment-preview-image-loaded"
-          : "aui-attachment-preview-image-loading invisible"
+          : "aui-attachment-preview-image-loading invisible",
       )}
       onLoad={() => setIsLoaded(true)}
     />
@@ -107,9 +107,7 @@ const AttachmentPreviewDialog: FC<PropsWithChildren> = ({ children }) => {
 };
 
 const AttachmentThumb: FC = () => {
-  const isImage = useAssistantState(
-    ({ attachment }) => attachment.type === "image",
-  );
+  const isImage = useAuiState((s) => s.attachment.type === "image");
   const src = useAttachmentSrc();
 
   return (
@@ -127,14 +125,12 @@ const AttachmentThumb: FC = () => {
 };
 
 const AttachmentUI: FC = () => {
-  const api = useAssistantApi();
-  const isComposer = api.attachment.source === "composer";
+  const aui = useAui();
+  const isComposer = aui.attachment.source === "composer";
 
-  const isImage = useAssistantState(
-    ({ attachment }) => attachment.type === "image",
-  );
-  const typeLabel = useAssistantState(({ attachment }) => {
-    const type = attachment.type;
+  const isImage = useAuiState((s) => s.attachment.type === "image");
+  const typeLabel = useAuiState((s) => {
+    const type = s.attachment.type;
     switch (type) {
       case "image":
         return "Image";
